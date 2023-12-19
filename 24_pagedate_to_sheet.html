@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+
+</head>
+<body>
+
+
+    <table id="myTable">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+        </tr>
+        <tr>
+          <td>John</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>Jane</td>
+          <td>28</td>
+        </tr>
+        <tr>
+            <td>Jssfane</td>
+            <td>18</td>
+          </tr>
+       
+      </table>
+
+      
+
+      <button onclick="exportToExcel()">Export to Excel</button>
+
+
+
+      <script>
+        // Function to export data to an Excel file
+        function exportToExcel() {
+          const table = document.getElementById("myTable");
+          const ws = XLSX.utils.table_to_sheet(table);
+          const wb = XLSX.utils.book_new();
+          XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+          XLSX.writeFile(wb, "data.xlsx");
+        }
+      </script>
+      
+      
+
+
+
+</body>
+</html>
